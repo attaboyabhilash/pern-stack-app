@@ -1,0 +1,510 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap");
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #000;
+}
+
+.container {
+    width: 70%;
+    margin: 0px auto;
+}
+
+.flexer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vector {
+    width: 500px;
+    margin-left: -50px;
+}
+
+/* Header */
+
+.head,
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head {
+    padding: 15px 0px 15px 0px;
+}
+
+.head h1 {
+    margin: 0px;
+    line-height: 1.2em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.head .ant-avatar {
+    margin-top: -5px;
+}
+
+.links {
+    padding-top: 4px;
+}
+
+.links .active {
+    color: #1890ff;
+}
+
+.links a {
+    color: #000;
+    margin-left: 20px;
+    font-weight: 500;
+    font-family: "Roboto", "sans-serif";
+}
+
+.links a:hover {
+    color: #1890ff;
+}
+
+/* Hero Section */
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.hero-image img {
+    width: 500px;
+    margin-right: -50px;
+}
+
+.hero-text p {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    color: #444;
+}
+
+.hero-text button {
+    margin-top: 7px;
+    font-weight: 500;
+}
+
+.header .logout {
+    margin: 20px;
+}
+
+/* Sign Up */
+.signup {
+    width: 350px;
+    margin: 50px 0px;
+}
+
+.signup h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signup
+    .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+}
+
+.signup .ant-form-large .ant-form-item-label > label {
+    height: auto;
+}
+
+.signup .ant-btn {
+    margin-top: 25px;
+}
+
+/* Sign In */
+.signin {
+    width: 350px;
+    margin: 50px 0px;
+}
+
+.signin h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signin
+    .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+}
+
+.signin .ant-form-large .ant-form-item-label > label {
+    height: auto;
+}
+
+.signin .ant-btn {
+    margin-top: 25px;
+}
+
+/* Dashboard */
+
+.dashboard {
+    margin-top: 0px;
+}
+
+.dashboard h1 {
+    font-family: "Montserrat", "sans-serif";
+    font-weight: 700;
+}
+
+.dashboard .logo-text h2 {
+    color: #f4f4f4;
+    font-family: "Roboto", "sans-serif";
+}
+
+.dashboard .ant-layout-sider-zero-width-trigger-left {
+    position: absolute;
+    right: 0px;
+    top: 15px;
+}
+
+.dashboard .dash-head {
+    width: 90%;
+    margin: 0px auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #121212;
+    color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 25px;
+}
+
+.footer h1 {
+    color: #fff;
+    margin: 0px;
+    font-family: "Montserret", sans-serif;
+    font-weight: 700;
+}
+
+.footer p {
+    margin-bottom: 0px;
+}
+
+.footer small {
+    position: relative;
+    top: -10px;
+    color: #aaa;
+}
+
+.heart {
+    color: #ff0000;
+}
+
+.twitter,
+.github,
+.linkedin,
+.instagram {
+    color: #fff;
+}
+
+.github {
+    color: #fff;
+    font-size: 2.8em;
+    padding: 5px;
+    margin: 0px 5px;
+    border-radius: 3px;
+}
+
+.github__ {
+    position: relative;
+    top: 13px;
+}
+
+.twitter__ {
+    background-color: #00acee;
+    padding: 5px 6.5px 3px;
+    margin: 0px 5px;
+    border-radius: 3px;
+}
+
+.linkedin__ {
+    background-color: #0e76a8;
+    padding: 5px 6.5px 3px;
+    margin: 0px 5px;
+    border-radius: 3px;
+}
+
+.instagram__ {
+    background-color: #bc318f;
+    background: radial-gradient(
+            circle farthest-corner at 35% 90%,
+            #fec564,
+            transparent 50%
+        ),
+        radial-gradient(
+            circle farthest-corner at 0 140%,
+            #fec564,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse farthest-corner at 0 -25%,
+            #5258cf,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse farthest-corner at 20% -50%,
+            #5258cf,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse farthest-corner at 100% 0,
+            #893dc2,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse farthest-corner at 60% -20%,
+            #893dc2,
+            transparent 50%
+        ),
+        radial-gradient(
+            ellipse farthest-corner at 100% 100%,
+            #d9317a,
+            transparent
+        ),
+        linear-gradient(
+            #6559ca,
+            #bc318f 30%,
+            #e33f5f 50%,
+            #f77638 70%,
+            #fec66d 100%
+        );
+    padding: 5px 6.5px 3px;
+    margin: 0px 5px;
+    border-radius: 3px;
+}
+
+/* Add New Todo */
+
+.add-todo {
+    margin: 20px 0px;
+}
+
+.add-todo .ant-input-group-addon button {
+    margin-right: -0.5px;
+    color: #fff;
+}
+
+.add-todo .ant-input-affix-wrapper,
+.add-todo .ant-input {
+    background-color: #34495e;
+    border: 1px solid #34495e;
+    color: #fff;
+}
+
+/* List Todo */
+
+.list-todo .ant-card {
+    margin-bottom: 1em;
+    background-color: #95a5a6;
+    border: 1px solid #001529;
+}
+
+.list-todo .ant-card:hover {
+    border: 1px solid #95a5a6;
+}
+
+.list-todo .ant-card-body {
+    padding: 10px;
+}
+
+.list-todo p {
+    color: #001529;
+    margin: 0px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    position: relative;
+    word-break: break-all;
+    position: relative;
+}
+
+.list-todo .list-flex-one {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-todo .list-flex-two {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.list-todo p::before {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 0.1rem;
+    background-color: #333;
+    z-index: 11;
+    top: 11px;
+    left: -5px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms linear;
+}
+
+.check input:checked ~ p::before {
+    transform: scaleX(1);
+}
+
+/* Checkbox */
+.check {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 3.5px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.check:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.check input:checked ~ .checkmark {
+    background-color: #2196f3;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.check input:checked ~ .checkmark::after {
+    display: block;
+}
+
+.check .checkmark::after {
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* icons */
+
+.list-todo .icons {
+    width: 45px;
+}
+
+.icons .edit {
+    font-size: 1.2em;
+    color: #001529;
+    position: relative;
+    top: 2px;
+}
+
+.icons .edit:hover {
+    cursor: pointer;
+    color: yellow;
+}
+
+.icons .delete {
+    float: right;
+    font-size: 1.4em;
+    color: #001529;
+}
+
+.icons .delete:hover {
+    cursor: pointer;
+    color: #ff0000;
+}
+
+/* Edit Todo */
+
+.edit-todo {
+    width: 500px;
+    margin: 20px auto;
+}
+
+.edit-todo .close {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #aaa;
+    float: right;
+}
+
+.edit-todo .close:hover {
+    color: #000;
+}
+
+.edit-todo .edit-button {
+    float: right;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.edit-todo .text-editor {
+    width: 92%;
+    margin: 20px auto;
+}
+
+.edit-todo .card-top {
+    position: relative;
+    z-index: 4;
+}
+
+.edit-todo .card-bottom {
+    position: relative;
+    z-index: 2;
+    transition: all 350ms ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+    .edit-todo {
+        width: 100%;
+        margin: 20px 0px;
+    }
+}

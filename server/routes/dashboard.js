@@ -7,11 +7,11 @@ const router = express.Router()
 //Dashboard + Get all Todos
 router.get("/", authorization, async (req, res) => {
     try {
-        const users = await pool.query(
-            "SELECT users.user_name todos.todo_id, todos.description FROM users LEFT JOIN todos on users.user_id = todos.user_id WHERE users.user_id = $1",
+        const userTodos = await pool.query(
+            "SELECT users.user_name, todos.todo_id, todos.description FROM users LEFT JOIN todos on users.user_id = todos.user_id WHERE users.user_id = $1",
             [req.user.id]
         )
-        res.json(users.rows)
+        res.json(userTodos.rows)
     } catch (err) {
         console.error(err.message)
         res.status(500).send("Server Error")
