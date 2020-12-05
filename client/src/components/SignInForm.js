@@ -17,7 +17,7 @@ function SignInForm({ setAuthenticated }) {
                 message.success("Logged In Successfully")
             } else {
                 setAuthenticated(false)
-                message.error("Authentication Error")
+                message.error(parseResponse)
             }
         } catch (err) {
             console.error(err.message)

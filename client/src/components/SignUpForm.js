@@ -17,7 +17,7 @@ function SignUpForm({ setAuthenticated }) {
                 message.success("Signed Up Successfully")
             } else {
                 setAuthenticated(false)
-                message.error("Authorization Error")
+                message.error(parseResponse)
             }
         } catch (err) {
             console.error(err.message)
