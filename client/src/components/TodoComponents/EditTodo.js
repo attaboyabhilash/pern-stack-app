@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Button, Card, Input } from "antd"
+import { Button, Card, Input, message } from "antd"
 import { MdClose } from "react-icons/md"
 import { useHistory } from "react-router-dom"
-import { toast } from "react-toastify"
 
 function EditTodo({ id }) {
     const { Meta } = Card
@@ -14,13 +13,10 @@ function EditTodo({ id }) {
 
     const getOneTodo = async () => {
         try {
-            const response = await fetch(
-                `http://localhost:5000/dashboard/todos/${id}`,
-                {
-                    method: "GET",
-                    headers: { token: localStorage.token },
-                }
-            )
+            const response = await fetch(`/dashboard/todos/${id}`, {
+                method: "GET",
+                headers: { token: localStorage.token },
+            })
             const parseResponse = await response.json()
             setTodo(parseResponse)
         } catch (err) {
@@ -29,21 +25,19 @@ function EditTodo({ id }) {
     }
 
     const onEditText = async (value) => {
-        if (value !== "") {
+        if (value !== "" && value !== todo.description) {
             try {
                 const body = { description: value }
-                await fetch(
-                    `http://localhost:5000/dashboard/todos/${todo.todo_id}`,
-                    {
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json",
-                            token: localStorage.token,
-                        },
-                        body: JSON.stringify(body),
-                    }
-                )
-                toast.success("Todo Edited Successfully!")
+                await fetch(`/dashboard/todos/${todo.todo_id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        token: localStorage.token,
+                    },
+                    body: JSON.stringify(body),
+                })
+                message.success("Todo Edited Successfully!")
+                setDrop(false)
             } catch (err) {
                 console.error(err.message)
             }

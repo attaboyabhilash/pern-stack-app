@@ -6,8 +6,6 @@ import {
     Redirect,
 } from "react-router-dom"
 import { Home, SignUp, SignIn, Dashboard, DashboardEdit } from "./pages"
-import { ToastContainer } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
 
 const App = () => {
     const [isAuth, setIsAuth] = useState(false)
@@ -18,7 +16,7 @@ const App = () => {
 
     const checkAuth = async () => {
         try {
-            const response = await fetch("http://localhost:5000/auth/verify", {
+            const response = await fetch("/auth/verify", {
                 method: "GET",
                 headers: { token: localStorage.getItem("token") },
             })
@@ -72,7 +70,6 @@ const App = () => {
                     )}
                 </Route>
             </Switch>
-            <ToastContainer />
         </Router>
     )
 }

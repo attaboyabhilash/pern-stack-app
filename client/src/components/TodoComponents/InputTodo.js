@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-import { Input } from "antd"
-import { toast } from "react-toastify"
+import { Input, message } from "antd"
 
 function InputTodo() {
     const { Search } = Input
@@ -10,7 +9,7 @@ function InputTodo() {
         if (value !== "") {
             try {
                 const body = { description: value }
-                await fetch("http://localhost:5000/dashboard/todos", {
+                await fetch("/dashboard/todos", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -18,7 +17,7 @@ function InputTodo() {
                     },
                     body: JSON.stringify(body),
                 })
-                toast.success("Todo Added Successfully!")
+                message.success("Todo Added Successfully!")
                 setAdd("")
             } catch (err) {
                 console.error(err.message)

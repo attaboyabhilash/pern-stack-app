@@ -1,7 +1,7 @@
 /client/node_modules
+/client/build
 
-/server/node_modules
+node_modules
 
-/server/db.js
 
-/server/.env
+.env

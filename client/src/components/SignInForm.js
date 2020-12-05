@@ -1,12 +1,11 @@
 import React from "react"
-import { Form, Input, Button, Card } from "antd"
+import { Form, Input, Button, Card, message } from "antd"
 import { Link } from "react-router-dom"
-import { toast } from "react-toastify"
 
 function SignInForm({ setAuthenticated }) {
     const onFinish = async (values) => {
         try {
-            const response = await fetch("http://localhost:5000/auth/signin", {
+            const response = await fetch("/auth/signin", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
@@ -15,10 +14,10 @@ function SignInForm({ setAuthenticated }) {
             if (parseResponse.token) {
                 localStorage.setItem("token", parseResponse.token)
                 setAuthenticated(true)
-                toast.success("Logged In Successfully")
+                message.success("Logged In Successfully")
             } else {
                 setAuthenticated(false)
-                toast.error(parseResponse)
+                message.error("Authentication Error")
             }
         } catch (err) {
             console.error(err.message)

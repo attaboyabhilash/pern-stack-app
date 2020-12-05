@@ -27,7 +27,8 @@ body {
     align-items: center;
 }
 
-.vector {
+.vector1,
+.vector2 {
     width: 500px;
     margin-left: -50px;
 }
@@ -503,6 +504,44 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+        margin-top: 10px;
+    }
+    .hero-section {
+        display: block;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 80%;
+        margin: 75px auto 25px auto;
+    }
+
+    .flexer {
+        display: block;
+        align-items: unset;
+    }
+
+    .vector1 {
+        width: 90%;
+        margin: 25px auto;
+        position: absolute;
+        bottom: -250px;
+    }
+
+    .vector2 {
+        width: 90%;
+        margin: 25px auto;
+        position: absolute;
+        bottom: -170px;
+    }
+
+    .signup,
+    .signin {
+        width: 95%;
+        margin: 25px auto 400px;
+    }
     .edit-todo {
         width: 100%;
         margin: 20px 0px;

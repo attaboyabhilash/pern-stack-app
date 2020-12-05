@@ -11,7 +11,7 @@ const SignUp = ({ setAuthenticated }) => {
             <div className="container">
                 <Header />
                 <div className="flexer">
-                    <img src={VectorOne} alt="vector__" className="vector" />
+                    <img src={VectorOne} alt="vector__" className="vector1" />
                     <SignUpForm setAuthenticated={setAuthenticated} />
                 </div>
             </div>

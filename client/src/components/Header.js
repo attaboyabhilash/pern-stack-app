@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react"
-import { Avatar, Popover, Button } from "antd"
+import { Avatar, Popover, Button, Tooltip, message } from "antd"
 import { NavLink, Link, useLocation, useParams } from "react-router-dom"
-import { toast } from "react-toastify"
 
 function Header({ setAuthenticated }) {
     const location = useLocation()
     const { id } = useParams()
     const [name, setName] = useState("")
+    const [visible, setVisible] = useState(false)
 
     const getName = async () => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard", {
+            const response = await fetch("/dashboard", {
                 method: "GET",
                 headers: { token: localStorage.token },
             })
@@ -24,12 +24,16 @@ function Header({ setAuthenticated }) {
     const logout = () => {
         localStorage.removeItem("token")
         setAuthenticated(false)
-        toast.success("Logged Out Successfully")
+        message.success("Logged Out Successfully")
     }
 
     useEffect(() => {
         getName()
     }, [])
+
+    const handleVisibleChange = (visible) => {
+        setVisible(visible)
+    }
 
     const content = () => {
         return (
@@ -49,18 +53,27 @@ function Header({ setAuthenticated }) {
         location.pathname === `/dashboard/${id}` ? (
         <div className="head">
             <div></div>
-            <Popover content={content}>
-                <Avatar
-                    size="large"
-                    style={{
-                        color: "#FFF",
-                        backgroundColor: "#1890FF",
-                        fontWeight: 600,
-                        cursor: "pointer",
-                    }}
-                >
-                    {name.charAt(0).toUpperCase()}
-                </Avatar>
+            <Popover
+                content={content}
+                trigger="click"
+                visible={visible}
+                onVisibleChange={handleVisibleChange}
+            >
+                <div style={{ float: "left" }}>
+                    <Tooltip placement="left" title="Click to Logout">
+                        <Avatar
+                            size="large"
+                            style={{
+                                color: "#FFF",
+                                backgroundColor: "#1890FF",
+                                fontWeight: 600,
+                                cursor: "pointer",
+                            }}
+                        >
+                            {name.charAt(0).toUpperCase()}
+                        </Avatar>
+                    </Tooltip>
+                </div>
             </Popover>
         </div>
     ) : (

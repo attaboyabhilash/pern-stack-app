@@ -6,13 +6,12 @@ import { EditTodo, InputTodo, ListTodo } from "./TodoComponents"
 
 function DashboardComponent({ setAuthenticated }) {
     const [name, setName] = useState("")
-    const [collapsed, setCollapsed] = useState(false)
     const { Content, Sider } = Layout
     const { id } = useParams()
 
     const getName = async () => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard", {
+            const response = await fetch("/dashboard", {
                 method: "GET",
                 headers: { token: localStorage.token },
             })
@@ -21,10 +20,6 @@ function DashboardComponent({ setAuthenticated }) {
         } catch (err) {
             console.error(err.message)
         }
-    }
-
-    const setTheCollapsed = (collapse) => {
-        setCollapsed(collapse)
     }
 
     useEffect(() => {
@@ -38,9 +33,7 @@ function DashboardComponent({ setAuthenticated }) {
                     breakpoint="lg"
                     collapsedWidth="0"
                     collapsible="true"
-                    collapsed={collapsed}
-                    onCollapse={setTheCollapsed}
-                    width="400px"
+                    width={window.innerWidth > 600 ? "400px" : "100%"}
                     style={{
                         overflow: "auto",
                         height: "100vh",

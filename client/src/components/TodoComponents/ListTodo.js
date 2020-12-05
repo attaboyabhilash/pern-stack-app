@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { Card } from "antd"
+import { Card, message } from "antd"
 import { Link, useHistory } from "react-router-dom"
 import { MdDeleteForever, MdEdit } from "react-icons/md"
-import { toast } from "react-toastify"
 
 function ListTodo() {
     const [todos, setTodos] = useState([])
@@ -11,7 +10,7 @@ function ListTodo() {
 
     const getTodos = async () => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard", {
+            const response = await fetch("/dashboard", {
                 method: "GET",
                 headers: { token: localStorage.token },
             })
@@ -24,11 +23,11 @@ function ListTodo() {
 
     const deleteTodo = async (id) => {
         try {
-            await fetch(`http://localhost:5000/dashboard/todos/${id}`, {
+            await fetch(`/dashboard/todos/${id}`, {
                 method: "DELETE",
                 headers: { token: localStorage.token },
             })
-            toast.success("Todo Deleted Successfully!!")
+            message.success("Todo Deleted Successfully!!")
             history.push("/dashboard")
         } catch (err) {
             console.error(err.message)

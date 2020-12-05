@@ -2,7 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const jwtAuth = require("./routes/jwtAuth")
 const dashboard = require("./routes/dashboard")
-require("dotenv").config()
+const path = require("path")
 
 const app = express()
 
@@ -10,14 +10,19 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+//Static File in production
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "client/build")))
+}
+
 //routes
 app.use("/auth", jwtAuth)
 
 //dashboard
 app.use("/dashboard", dashboard)
 
-const port = process.env.PORT
+const PORT = process.env.PORT || 5000
 
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`)
+app.listen(PORT, () => {
+    console.log(`Server running on PORT: ${PORT}`)
 })
