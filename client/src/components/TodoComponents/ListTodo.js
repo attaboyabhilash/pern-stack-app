@@ -71,7 +71,7 @@ function ListTodo() {
 
     return (
         <div className="list-todo">
-            {todos && todos[0].todo_id ? (
+            {todos.length > 0 && todos[0].todo_id ? (
                 listOfTodos
             ) : (
                 <Card>
