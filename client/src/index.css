@@ -503,6 +503,13 @@ body {
     transition: all 350ms ease-in-out;
 }
 
+@media only screen and (max-width: 1000px) {
+    .vector1,
+    .vector2 {
+        width: 250px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .container {
         width: 90%;
@@ -523,24 +530,15 @@ body {
         align-items: unset;
     }
 
-    .vector1 {
-        width: 90%;
-        margin: 25px auto;
-        position: absolute;
-        bottom: -250px;
-    }
-
+    .vector1,
     .vector2 {
-        width: 90%;
-        margin: 25px auto;
-        position: absolute;
-        bottom: -170px;
+        display: none;
     }
 
     .signup,
     .signin {
         width: 95%;
-        margin: 25px auto 400px;
+        margin: 80px auto 250px;
     }
     .edit-todo {
         width: 100%;
