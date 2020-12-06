@@ -38,40 +38,46 @@ function ListTodo() {
         getTodos()
     }, [todos])
 
+    const listOfTodos = todos.map((todo) => {
+        return (
+            <Card key={todo.todo_id} hoverable>
+                <div className="list-flex-one">
+                    <div className="list-flex-two">
+                        <label className="check">
+                            <input
+                                type="checkbox"
+                                value={checked}
+                                onChange={() =>
+                                    setChecked((check) => (check = !check))
+                                }
+                            />
+                            <span className="checkmark"></span>
+                            <p>{todo.description}</p>
+                        </label>
+                    </div>
+                    <div className="icons">
+                        <Link to={`/dashboard/${todo.todo_id}`}>
+                            <MdEdit className="edit" />
+                        </Link>
+                        <MdDeleteForever
+                            className="delete"
+                            onClick={() => deleteTodo(todo.todo_id)}
+                        />
+                    </div>
+                </div>
+            </Card>
+        )
+    })
+
     return (
         <div className="list-todo">
-            {todos.map((todo) => {
-                return (
-                    <Card key={todo.todo_id} hoverable>
-                        <div className="list-flex-one">
-                            <div className="list-flex-two">
-                                <label className="check">
-                                    <input
-                                        type="checkbox"
-                                        value={checked}
-                                        onChange={() =>
-                                            setChecked(
-                                                (check) => (check = !check)
-                                            )
-                                        }
-                                    />
-                                    <span className="checkmark"></span>
-                                    <p>{todo.description}</p>
-                                </label>
-                            </div>
-                            <div className="icons">
-                                <Link to={`/dashboard/${todo.todo_id}`}>
-                                    <MdEdit className="edit" />
-                                </Link>
-                                <MdDeleteForever
-                                    className="delete"
-                                    onClick={() => deleteTodo(todo.todo_id)}
-                                />
-                            </div>
-                        </div>
-                    </Card>
-                )
-            })}
+            {todos[0].todo_id ? (
+                listOfTodos
+            ) : (
+                <Card>
+                    <p>No Todo Exist</p>
+                </Card>
+            )}
         </div>
     )
 }
