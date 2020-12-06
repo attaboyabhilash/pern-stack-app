@@ -18,7 +18,7 @@ const App = () => {
         try {
             const response = await fetch("/auth/verify", {
                 method: "GET",
-                headers: { token: localStorage.getItem("token") },
+                headers: { token: localStorage.token },
             })
             const parseResponse = await response.json()
             parseResponse === true ? setIsAuth(true) : setIsAuth(false)
